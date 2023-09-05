@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class h2 {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // main prog
     public static void main(String[] args) {
 
@@ -16,8 +18,6 @@ public class h2 {
 
     // tollid meetriks conversion
     static void tollMeetriks() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Sisesta tollid: ");
         double toll = scanner.nextDouble();
 
@@ -27,8 +27,6 @@ public class h2 {
 
     // ellipsi pindala
     static void ellips() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Sisesta pooltelg a pikkus (cm): ");
         double a = scanner.nextDouble();
 
@@ -45,24 +43,26 @@ public class h2 {
 
     // minutid tundideks
     public static void minutTunniks() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Sisesta minutid: ");
         int minut = scanner.nextInt();
-        System.out.println(minut);
 
         double tund = (double) minut / 60;
-        System.out.println(tund);
         int x = (int) Math.floor(tund);
         double minutid = Math.round((tund - x) * 60);
+
         System.out.println(minut + " minutit = " + x + " tund(i) ja " + minutid + " minutit");
 
     }
 
     static double[] sportKiirus() {
-        double distants = 12;
-        double aeg1 = 0.9;
-        double aeg2 = 1.1;
+        System.out.print("Sisesta distants (km): ");
+        double distants = scanner.nextDouble();
+
+        System.out.print("Sisesta 1. sportlase aeg (h): ");
+        double aeg1 = scanner.nextDouble();
+
+        System.out.print("Sisesta 2. sportlase aeg (h): ");
+        double aeg2 = scanner.nextDouble();
 
         double kiirus1 = Math.round(distants / aeg1 * 100.0) / 100.0;
         double kiirus2 = Math.round(distants / aeg2 * 100.0) / 100.0;
