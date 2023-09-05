@@ -5,7 +5,6 @@ public class h2 {
     // main prog
     public static void main(String[] args) {
 
-        sportKiirus();
         double[] kiirused = sportKiirus();
         double kiirus1 = kiirused[0];
         double kiirus2 = kiirused[1];
@@ -79,6 +78,6 @@ public class h2 {
     // sportlaste kiiruste vahe
     static void kiirusteVahe(double kiirus1, double kiirus2) {
         double vahe = Math.round(Math.abs(kiirus1 - kiirus2) * 100.0) / 100.0;
-        System.out.println(vahe);
+        System.out.println("Sportlaste kiiruse vahe on: " + vahe + "km/h");
     }
 }
