@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class h4 {
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta mingi tekst: ");
         String tekst = scanner.nextLine();
         System.out.println("Sisestatud tekst: " + tekst);
