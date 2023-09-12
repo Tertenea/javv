@@ -6,10 +6,11 @@ public class iseseisev {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        tagurpidi();
-        yksKuniKuus();
-        liitmine();
-        randInt();
+        takistid();
+        //tagurpidi();
+        //yksKuniKuus();
+        //liitmine();
+        //randInt();
 
     }
 
@@ -52,5 +53,18 @@ public class iseseisev {
         }
     }
 
-    
+    static void takistid() {
+        System.out.println("Sisesta takistite kogus: ");
+        int takistx = scanner.nextInt();
+
+        System.out.print("Rööpühenduse kogutakistus (1)\nJadaühenduse kogutakistus (2)\nTee valik: ");
+        String valik = scanner.next();
+
+        switch (Integer.parseInt(valik)) {
+            case 1:
+            for (int i = 0; i < takistx; i++) {
+                System.out.println("seksikiisu" + i);
+            }
+        }
+    }   
 }
