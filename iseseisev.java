@@ -7,10 +7,10 @@ public class iseseisev {
 
     public static void main(String[] args) {
         takistid();
-        //tagurpidi();
-        //yksKuniKuus();
-        //liitmine();
-        //randInt();
+        // tagurpidi();
+        // yksKuniKuus();
+        // liitmine();
+        // randInt();
 
     }
 
@@ -49,22 +49,43 @@ public class iseseisev {
         String lause = scanner.nextLine();
         String[] sonad = lause.split(" ");
         for (int i = sonad.length - 1; i >= 0; i--) {
-            System.out.println(sonad[i] + " ");
+            System.out.print(sonad[i] + " ");
         }
     }
 
     static void takistid() {
-        System.out.println("Sisesta takistite kogus: ");
-        int takistx = scanner.nextInt();
-
         System.out.print("Rööpühenduse kogutakistus (1)\nJadaühenduse kogutakistus (2)\nTee valik: ");
         String valik = scanner.next();
 
+        System.out.println("Sisesta takistite kogus: ");
+        int takistx = scanner.nextInt();
+
         switch (Integer.parseInt(valik)) {
             case 1:
-            for (int i = 0; i < takistx; i++) {
-                System.out.println("seksikiisu" + i);
-            }
+                double kogutakistus = 0.0;
+                double x;
+                for (int i = 0; i < takistx; i++) {
+                    System.out.println("Sisesta " + (i + 1) + ". takisti takistus(Ohm): ");
+                    x = scanner.nextInt();
+                    kogutakistus += (1 / x);
+                }
+                double y = 1 / kogutakistus * 100;
+                double z = Math.round(y);
+                System.out.println("Kogutakistus on " + (z / 100) + " Ohm");
+                break;
+
+            case 2:
+                int summa = 0;
+                int jadatakistus[] = new int[takistx];
+                for (int i = 0; i < takistx; i++) {
+                    System.out.println("Sisesta " + (i + 1) + ". takisti takistus(Ohm): ");
+                    jadatakistus[i] = scanner.nextInt();
+                }
+                for (int jadatakisti : jadatakistus) {
+                    summa += jadatakisti;
+                }
+                System.out.println("Kogutakistus on " + summa + " Ohm");
+                break;
         }
-    }   
+    }
 }
