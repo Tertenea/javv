@@ -1,12 +1,23 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class iseseisev {
 
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String filepath = "students.csv";
 
     public static void main(String[] args) {
-        takistid();
+        List<String> read = loeReadFailist(filepath);
+
+        loeReadFailist(filepath);
+        opilasteArv(read);
+        
+        //takistid();
         // tagurpidi();
         // yksKuniKuus();
         // liitmine();
@@ -87,5 +98,17 @@ public class iseseisev {
                 System.out.println("Kogutakistus on " + summa + " Ohm");
                 break;
         }
+    }
+
+    private static List<String> loeReadFailist(String filepath) {
+        try {
+            return Files.lines(Paths.get(filepath)).collect(Collectors.toList());
+        } catch (IOException e) {
+            System.out.println("ei saa lugeda faili");
+            return null;
+        }
+    }
+    private static void opilasteArv(List<String> read) {
+        System.out.println("Õpilaste arv on " + (read.size() - 1));
     }
 }
