@@ -10,36 +10,61 @@ public class iseseisev {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final String filepath = "students.csv";
+    private static final Random rand = new Random();
+    private static final List<String> read = loeReadFailist(filepath);
 
     public static void main(String[] args) {
-        List<String> read = loeReadFailist(filepath);
+        boolean loop = true;
+        while (loop) {
 
-        loeReadFailist(filepath);
-        opilasteArv(read);
-        
-        //takistid();
-        // tagurpidi();
-        // yksKuniKuus();
-        // liitmine();
-        // randInt();
+            System.out.print("Millist programmi soovid?\nLause tagurpidi pööramine (1)\nTakistid (2)\nPaaris või paaritu (3)\nÜhest kuuekümnekuueni (4)\nÕpilaste failist lugemine (5)\nSulge programm (6)\nTee valik: ");
+            String valik = scanner.next();
 
+            switch (Integer.parseInt(valik)) {
+                case 1:
+                    tagurpidi();
+                    break;
+                case 2:
+                    takistid();
+                    break;
+                case 3:
+                    paarisPaaritu();
+                    break;
+                case 4:
+                    yksKuusKuus();
+                    break;
+                case 5:
+                    loeReadFailist(filepath);
+                    System.out.println("Mida soovid näha?\nÕpilaste arv (1)\nEsimesed kümme (2)\nSuvalised kolm (3)\nAinult email (4)\nNime esitäht (5)\nPerenimest parool (6)\nTee valik:");
+                    String valik2 = scanner.next();
+                    switch (Integer.parseInt(valik2)) {
+                        case 1:
+                            opilasteArv(read);
+                            break;
+                        case 2:
+                            essaKymme(read);
+                            break;
+                        case 3:
+                            suvalisedKolm(read);
+                            break;
+                        case 4:
+                            ainultEmail(read);
+                            break;
+                        case 5:
+                            esiTahed(read);
+                            break;
+                        case 6:
+                            perenimePasswd(read);
+                            break;
+                        }
+                case 6:
+                    loop = false;
+                    break;   
+            }
+        }
     }
 
-    static void liitmine() {
-        System.out.print("Sisesta esimene arv: ");
-        int arv1 = scanner.nextInt();
-        System.out.print("Sisesta teine arv: ");
-        int arv2 = scanner.nextInt();
-        System.out.printf("%d + %d = %d\n", arv1, arv2, arv1 + arv2);
-    }
-
-    static void randInt() {
-        Random rand = new Random();
-        int randInt = rand.nextInt(6);
-        System.out.printf("Arv on %d\n", randInt);
-    }
-
-    static void yksKuniKuus() {
+    static void yksKuusKuus() {
         for (int i = 0; i < 66; i++) {
             System.out.println(i + 1);
         }
@@ -108,7 +133,43 @@ public class iseseisev {
             return null;
         }
     }
+
     private static void opilasteArv(List<String> read) {
         System.out.println("Õpilaste arv on " + (read.size() - 1));
+    }
+
+    private static void essaKymme(List<String> read) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(read.get(i + 1));
+        }
+    }
+
+    private static void suvalisedKolm(List<String> read) {
+        for (int i = 0; i < 3; i++) {
+            int randInt = rand.nextInt(read.size() - 1);
+            System.out.println(read.get(randInt + 1));
+        }
+    }
+
+    private static void ainultEmail(List<String> read) {
+        for (int i = 0; i < read.size(); i++) {
+            String[] split = read.get(i).split(",");
+            System.out.println(split[3]);
+        }
+    }
+
+    private static void esiTahed(List<String> read) {
+        for (int i = 0; i < read.size(); i++) {
+            String[] split = read.get(i).split(",");
+            System.out.println(split[0].charAt(0) + ". " + split[1]);
+        }
+    }
+
+    private static void perenimePasswd(List<String> read) {
+        for (int i = 0; i < read.size(); i++) {
+            int randInt = rand.nextInt(900) + 99;
+            String[] split = read.get(i).split(",");
+            System.out.println(split[2] + randInt);
+        }
     }
 }
