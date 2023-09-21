@@ -35,6 +35,10 @@ class Lind extends Loom {
         this.lendamiseKiirus = lendamiseKiirus;
     }
 
+    @Override
+    void toit() {
+        System.out.println(nimi + " on " + lendamiseKiirus + " ja sööb ussikesi ja putukaid ja saia.");
+    }
 }
 
 // feesh
@@ -54,8 +58,8 @@ class Kala extends Loom {
 
 public class App {
     public static void main(String[] args) {
-        Loom roomaja = new Roomaja("Madu", "roomaja");
-        Loom lind = new Lind("Kotkas", "kiire");
+        Loom roomaja = new Roomaja("Uss", "roomaja");
+        Loom lind = new Lind("Tuvi", "kiire");
         Loom kala = new Kala("Lõhe", "jõgi");
 
         roomaja.toit();
