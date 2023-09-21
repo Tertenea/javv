@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 
 // tsikl
 class Tsikkel {
@@ -91,6 +92,9 @@ class TreeningSession {
 }
 
 public class h9 {
+
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         // tsikl, soitja ja trenniraja objektid
         Tsikkel tsikkel1 = new Tsikkel("Honda", "Hornet", 2009, 210);
@@ -107,6 +111,9 @@ public class h9 {
 
         soitja1.soidaTsikliga(tsikkel1);
         soitja2.soidaTsikliga(tsikkel2);
+
+        System.out.println("Kui soovid lõpetada treeningu, vajuta ENTER");
+        scanner.nextLine();
 
         treeningSession1.lopetaTreening();
         treeningSession2.lopetaTreening();
